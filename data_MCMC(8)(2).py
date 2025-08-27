@@ -205,9 +205,6 @@ x_trace_kl = kl_transform_rbf_intra_inter_fast(x_trace, m=2, intraslice_knn=7, d
 
 n_val = min(1000, len(x_test_kl))
 val_idx = np.random.default_rng(42).choice(len(x_test_kl), n_val, replace=False)
-#????
-#x_val = x_test_kl[val_idx]  # Inputs
-#y_val = y_test[val_idx]  # Labels (one-hot encoded)
 
 # Normalize after KL transform
 scaler_kl = StandardScaler()
@@ -646,4 +643,5 @@ fig.update_layout(height=600, width=1100,
                   title_text="M-PHATE Visualization: KL-divergenced Activations (Best HP)",
                   margin=dict(l=40, r=40, t=40, b=0))
 fig.show()
+
 
