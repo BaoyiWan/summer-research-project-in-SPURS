@@ -2,8 +2,6 @@ import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import keras
-# import scprep
-# import m_phate
 import m_phate.train
 import m_phate.data
 import pandas as pd
@@ -16,9 +14,7 @@ import keras_tuner as kt
 from m_phate import M_PHATE
 from tensorflow.keras.optimizers.experimental import AdamW
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
-# import copy
 import time
-# import sys
 import warnings
 
 warnings.filterwarnings('ignore')
@@ -195,7 +191,6 @@ def kl_transform_rbf_intra_inter_fast(data_np, m=2, alpha=2,
 
     sim_numpy = sim_matrix.cpu().numpy()
     return sim_numpy[:, :data_np.shape[1]]
-    #return sim_numpy
 
 
 # Apply KL-RBF transform
@@ -643,5 +638,6 @@ fig.update_layout(height=600, width=1100,
                   title_text="M-PHATE Visualization: KL-divergenced Activations (Best HP)",
                   margin=dict(l=40, r=40, t=40, b=0))
 fig.show()
+
 
 
