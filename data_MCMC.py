@@ -278,18 +278,11 @@ tuner = kt.BayesianOptimization(
     overwrite=True,
 )
 
-es = EarlyStopping(
-    monitor='val_mean_squared_error',
-    patience=15,
-    restore_best_weights=True,
-    verbose=1
-)
-
 tuner.search(
     x_train_kl, y_train,
     validation_data=(x_test_kl, y_test),
     epochs=200,
-    callbacks=[ ],  # Only early stop here, origin is es
+    callbacks=[ ],  
     verbose=1
 )
 
@@ -638,6 +631,7 @@ fig.update_layout(height=600, width=1100,
                   title_text="M-PHATE Visualization: KL-divergenced Activations (Best HP)",
                   margin=dict(l=40, r=40, t=40, b=0))
 fig.show()
+
 
 
 
